@@ -93,6 +93,9 @@ class App extends Component { // state-full component
           }
         </div>
       );
+      // changing style dynamically
+      buttonStyle.backgroundColor = 'grey';
+      buttonStyle.color = 'black';
     }
 
     return (
