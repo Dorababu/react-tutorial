@@ -15,7 +15,6 @@ class App extends Component { // state-full component
   }
 
   changeStateHandler = (newName) => {
-    console.log('I am clicked');
     this.setState({
       persons: [
         { name: newName, age: '32' },
@@ -26,7 +25,6 @@ class App extends Component { // state-full component
   }
 
   changedStateHandler = (e) => {
-    console.log('I am clicked');
     this.setState({
       persons: [
         { name: 'Dora Babu', age: '32' },
@@ -37,8 +35,6 @@ class App extends Component { // state-full component
   }
 
   personToggleHandler = (jsxWay, jsWay) => {
-    console.log('jsxWay', jsxWay)
-    console.log('jsWay', jsWay)
     this.setState({ showPersons: jsWay });
     this.setState({ togglePersons: jsxWay });
   }
@@ -56,7 +52,7 @@ class App extends Component { // state-full component
 
   render() {
 
-    const buttonStyle = {
+    const buttonStyle = { // inline styiling
       backgroundColor: 'lightblue',
       border: 'none',
       padding: '10px',
@@ -70,7 +66,7 @@ class App extends Component { // state-full component
 
 
     let persons = null;
-    if (this.state.togglePersons) {
+    if (this.state.togglePersons) { // Display content statically using JS way
       persons = (
         <div>
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
@@ -81,7 +77,7 @@ class App extends Component { // state-full component
     }
 
     let personsList = null;
-    if (this.state.iteratePersons) {
+    if (this.state.iteratePersons) { // Display content using iterator 
       personsList = (
         <div>
           {
