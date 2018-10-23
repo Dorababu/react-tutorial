@@ -98,9 +98,20 @@ class App extends Component { // state-full component
       buttonStyle.color = 'black';
     }
 
+    const classes = [];
+    if(this.state.persons.length === 3) {
+      classes.push('green');
+    }
+    if(this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if(this.state.persons.length <= 1) {
+      classes.push('bold');
+    }
+
     return (
       <div className="App">
-        <h1>My First React App</h1>
+        <h1 className={classes.join(' ')}>My First React App</h1>
         <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')}>Change Person Name</button> {/* binding click using bind and inlie style*/}
         <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)}>Toggle Persons JSX way</button>
         <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)}>Toggle Persons JS Way</button>

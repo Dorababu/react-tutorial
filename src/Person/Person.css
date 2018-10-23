@@ -7,3 +7,7 @@
     width: 50%;
     color: chocolate;
 }
+
+.red {color: red !important}
+.green {color: green}
+.bold {font-size: 50px}
