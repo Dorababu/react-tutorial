@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
 
-class App extends Component {
+class App extends Component { // state-full component
   state = {
     persons : [
       {name: 'Dora', age: '32'},
