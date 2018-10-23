@@ -47,6 +47,12 @@ class App extends Component { // state-full component
     this.setState({ iteratePersons: !this.state.iteratePersons });
   }
 
+  deletePersonHandler = (index) => { // deleting person based on array index
+    const persons = this.state.persons;
+    persons.splice(index,1)
+    this.setState({ persons: persons});
+  }
+
 
   render() {
 
@@ -79,8 +85,8 @@ class App extends Component { // state-full component
       personsList = (
         <div>
           {
-            this.state.persons.map(person => {
-              return <Person name={person.name} age={person.age} />
+            this.state.persons.map((person, index) => {
+              return <Person name={person.name} age={person.age} deletePerson={() => this.deletePersonHandler(index)} />
             })
           }
         </div>
