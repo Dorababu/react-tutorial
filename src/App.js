@@ -5,9 +5,9 @@ import Person from './Person/Person'
 class App extends Component { // state-full component
   state = {
     persons: [
-      { name: 'Dora', age: '32' },
-      { name: 'Chai', age: '33' },
-      { name: 'Hari', age: '34' }
+      { id: '1', name: 'Dora', age: '32' },
+      { id: '2', name: 'Chai', age: '33' },
+      { id: '3', name: 'Hari', age: '34' }
     ],
     showPersons: false,
     togglePersons: false,
@@ -44,8 +44,10 @@ class App extends Component { // state-full component
   }
 
   deletePersonHandler = (index) => { // deleting person based on array index
-    const persons = this.state.persons;
-    persons.splice(index,1)
+    //const persons = this.state.persons;
+    //const persons = this.state.persons.slice(); // gives a copy of object rather than reference 
+    const persons = [...this.state.persons]; // gives a copy of object rather than reference 
+    persons.splice(index,1) // array are reference objects so this will cause modification in original array
     this.setState({ persons: persons});
   }
 
@@ -82,7 +84,7 @@ class App extends Component { // state-full component
         <div>
           {
             this.state.persons.map((person, index) => {
-              return <Person name={person.name} age={person.age} deletePerson={() => this.deletePersonHandler(index)} />
+              return <Person name={person.name} age={person.age} key={person.id} deletePerson={() => this.deletePersonHandler(index)} />
             })
           }
         </div>
