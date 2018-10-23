@@ -34,12 +34,24 @@ class App extends Component { // state-full component
   }
 
   render() {
+
+    const buttonStyle = {
+      backgroundColor : 'lightblue',
+      border: 'none',
+      padding: '10px',
+      borderRadius: '5px',
+      boxShadow: '1px 2px #ccc',
+      fontWeight: 'bold',
+      color: 'navyblue',
+      fontSize: '14px'
+    }
+
     return (
       <div className="App">
        <h1>My First React App</h1>
-       <button onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')}>Click Me</button>
+       <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')}>Click Me</button> {/* binding click using bind and inlie style*/}
        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
-       <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} changeMe={this.changedStateHandler} />
+       <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} changeMe={this.changedStateHandler} /> {/* binding click using arrow function*/}
        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
       </div>
     );
