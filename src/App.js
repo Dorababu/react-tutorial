@@ -24,13 +24,17 @@ class App extends Component { // state-full component
     });
   }
 
-  changedStateHandler = (e) => {
+  changedStateHandler = (e, id) => { // Dynamically update values of list
+    const personIndex = this.state.persons.findIndex(person => {
+      return person.id === id;
+    });
+    const person = {...this.state.persons[personIndex]};
+    //const person = Object.assign({},this.state.persons[personIndex]);
+    person.name = e.target.value;
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
     this.setState({
-      persons: [
-        { name: 'Dora Babu', age: '32' },
-        { name: e.target.value, age: '33' },
-        { name: 'Hari', age: '33' }
-      ]
+      persons: persons
     });
   }
 
@@ -72,8 +76,8 @@ class App extends Component { // state-full component
       persons = (
         <div>
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
-          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} changeMe={this.changedStateHandler} /> {/* binding click using arrow function*/}
-          <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} /> {/* binding click using arrow function*/}
+          <Person name={this.state.persons[2].name} age={this.state.persons[2].age}  />
         </div>
       );
     }
@@ -84,7 +88,7 @@ class App extends Component { // state-full component
         <div>
           {
             this.state.persons.map((person, index) => {
-              return <Person name={person.name} age={person.age} key={person.id} deletePerson={() => this.deletePersonHandler(index)} />
+              return <Person name={person.name} age={person.age} key={person.id} changeMe={(e) => this.changedStateHandler(e, person.id)} deletePerson={() => this.deletePersonHandler(index)} /> 
             })
           }
         </div>
@@ -101,7 +105,7 @@ class App extends Component { // state-full component
         {this.state.showPersons ?
           <div>
             <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
-            <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} changeMe={this.changedStateHandler} /> {/* binding click using arrow function*/}
+            <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} /> {/* binding click using arrow function*/}
             <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
           </div> : null
         }
