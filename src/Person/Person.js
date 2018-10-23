@@ -1,5 +1,5 @@
 import React from 'react';
-import './Person.css'
+import './Person.css' // using external style sheet
 
 const person = (props) => { // state-less component
     return ( 
