@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import Radium from 'radium';
 
 class App extends Component { // state-full component
   state = {
@@ -59,15 +60,19 @@ class App extends Component { // state-full component
   render() {
 
     const buttonStyle = { // inline styiling
-      backgroundColor: 'lightblue',
+      backgroundColor: 'darkorange',
       border: 'none',
       padding: '10px',
       borderRadius: '5px',
-      boxShadow: '1px 2px #ccc',
+      boxShadow: '4px 4px 5px #ccc',
       fontWeight: 'bold',
-      color: 'navyblue',
+      color: 'white',
       fontSize: '14px',
-      margin: '20px'
+      margin: '20px',
+      ':hover': {
+        backgroundColor: 'green',
+        cursor:'pointer'
+      }
     }
 
 
@@ -94,8 +99,11 @@ class App extends Component { // state-full component
         </div>
       );
       // changing style dynamically
-      buttonStyle.backgroundColor = 'grey';
-      buttonStyle.color = 'black';
+      buttonStyle.backgroundColor = 'green';
+      buttonStyle[':hover'] = {
+        backgroundColor: 'darkorange',
+        cursor:'pointer'
+      }
     }
 
     const classes = [];
@@ -111,11 +119,11 @@ class App extends Component { // state-full component
 
     return (
       <div className="App">
-        <h1 className={classes.join(' ')}>My First React App</h1>
-        <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')}>Change Person Name</button> {/* binding click using bind and inlie style*/}
-        <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)}>Toggle Persons JSX way</button>
-        <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)}>Toggle Persons JS Way</button>
-        <button style={buttonStyle} onClick={this.personIterateHandler}>Load Persons</button>
+        <h1 className={classes.join(' ')}>React Tutorial</h1>
+        <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')} key='changeName'>Change Person Name</button> {/* binding click using bind and inlie style*/}
+        <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)} key='loadPersonsJSX'>Toggle Persons JSX way</button>
+        <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)} key='loadPersonsJS'>Toggle Persons JS Way</button>
+        <button style={buttonStyle} onClick={this.personIterateHandler} key='loadPersons'>Load Persons</button>
         {this.state.showPersons ?
           <div>
             <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
@@ -130,4 +138,4 @@ class App extends Component { // state-full component
   }
 }
 
-export default App;
+export default Radium(App);
