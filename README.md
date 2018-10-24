@@ -1,11 +1,6 @@
 # React-Tutorial
 React-Tutorial
 
-Demo
----
- [Demo](https://dorababu.github.io/react-tutorial/)
-
-
 Install
 ---
 
