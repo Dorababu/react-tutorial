@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import Radium, { StyleRoot} from 'radium';
 
 class App extends Component { // state-full component
   state = {
@@ -118,22 +118,24 @@ class App extends Component { // state-full component
     }
 
     return (
-      <div className="App">
-        <h1 className={classes.join(' ')}>React Tutorial</h1>
-        <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')} key='changeName'>Change Person Name</button> {/* binding click using bind and inlie style*/}
-        <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)} key='loadPersonsJSX'>Toggle Persons JSX way</button>
-        <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)} key='loadPersonsJS'>Toggle Persons JS Way</button>
-        <button style={buttonStyle} onClick={this.personIterateHandler} key='loadPersons'>Load Persons</button>
-        {this.state.showPersons ?
-          <div>
-            <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
-            <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} /> {/* binding click using arrow function*/}
-            <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
-          </div> : null
-        }
-        {persons} {/* Conditional toggling  javascript way */}
-        {personsList} {/* Display content using iterator */}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1 className={classes.join(' ')}>React Tutorial</h1>
+          <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')} key='changeName'>Change Person Name</button> {/* binding click using bind and inlie style*/}
+          <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)} key='loadPersonsJSX'>Toggle Persons JSX way</button>
+          <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)} key='loadPersonsJS'>Toggle Persons JS Way</button>
+          <button style={buttonStyle} onClick={this.personIterateHandler} key='loadPersons'>Load Persons</button>
+          {this.state.showPersons ?
+            <div>
+              <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Cricket, Shuttle and Cooking</Person>
+              <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clickMe={() => this.changeStateHandler('Dorababu')} /> {/* binding click using arrow function*/}
+              <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+            </div> : null
+          }
+          {persons} {/* Conditional toggling  javascript way */}
+          {personsList} {/* Display content using iterator */}
+        </div>
+      </StyleRoot>
     );
   }
 }
