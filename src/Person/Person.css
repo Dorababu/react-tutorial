@@ -9,6 +9,12 @@
     background-color: lightgoldenrodyellow;
 }
 
+@media (min-width: 500px)  {
+    .Person{
+        width: 450px;
+    }
+}
+
 .red {color: red !important}
 .green {color: green}
 .bold {font-size: 50px}

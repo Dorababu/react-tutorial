@@ -17,6 +17,7 @@
   background-color: green;
   cursor:pointer;
 }
+.App button.olive {background-color: olive}
 .red {color: red}
 .green {color: green}
 .bold {font-size: 50px}

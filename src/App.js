@@ -106,7 +106,7 @@ class App extends Component { // state-full component
         backgroundColor: 'darkorange',
         cursor:'pointer'
       }*/
-      btnClass = classes.red;
+      btnClass = classes.olive;
     }
 
     const assignedClasses = [];
@@ -128,6 +128,7 @@ class App extends Component { // state-full component
           <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)} key='loadPersonsJSX'>Toggle Persons JSX way</button>
           <button style={buttonStyle} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)} key='loadPersonsJS'>Toggle Persons JS Way</button>
           <button style={buttonStyle} onClick={this.personIterateHandler} key='loadPersons'>Load Persons</button> */}
+          <h1 className={assignedClasses.join(' ')}>React Tutorial</h1>
           <button className={btnClass} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')} key='changeName'>Change Person Name</button> 
           <button className={btnClass} onClick={this.personToggleHandler.bind(this, this.state.togglePersons, !this.state.showPersons)} key='loadPersonsJSX'>Toggle Persons JSX way</button>
           <button className={btnClass} onClick={this.personToggleHandler.bind(this, !this.state.togglePersons, this.state.showPersons)} key='loadPersonsJS'>Toggle Persons JS Way</button>
