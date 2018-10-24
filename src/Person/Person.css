@@ -2,10 +2,11 @@
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #eee;
-    border-radius: 5px;
-    box-shadow: 1px 2px #ccc;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px #ccc;
     width: 50%;
     color: chocolate;
+    background-color: lightgoldenrodyellow;
 }
 
 .red {color: red !important}
