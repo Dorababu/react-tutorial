@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium, { StyleRoot} from 'radium';
+//import Radium, { StyleRoot} from 'radium';
 
 class App extends Component { // state-full component
   state = {
@@ -68,11 +68,11 @@ class App extends Component { // state-full component
       fontWeight: 'bold',
       color: 'white',
       fontSize: '14px',
-      margin: '20px',
-      ':hover': {
+      margin: '20px'
+      /*':hover': {
         backgroundColor: 'green',
         cursor:'pointer'
-      }
+      }*/
     }
 
 
@@ -100,10 +100,10 @@ class App extends Component { // state-full component
       );
       // changing style dynamically
       buttonStyle.backgroundColor = 'green';
-      buttonStyle[':hover'] = {
+      /*buttonStyle[':hover'] = {
         backgroundColor: 'darkorange',
         cursor:'pointer'
-      }
+      }*/
     }
 
     const classes = [];
@@ -118,7 +118,7 @@ class App extends Component { // state-full component
     }
 
     return (
-      <StyleRoot>
+      /*<StyleRoot>*/
         <div className="App">
           <h1 className={classes.join(' ')}>React Tutorial</h1>
           <button style={buttonStyle} onClick={this.changeStateHandler.bind(this, 'Chodisetti Dorababu')} key='changeName'>Change Person Name</button> {/* binding click using bind and inlie style*/}
@@ -135,9 +135,10 @@ class App extends Component { // state-full component
           {persons} {/* Conditional toggling  javascript way */}
           {personsList} {/* Display content using iterator */}
         </div>
-      </StyleRoot>
+      /*</StyleRoot>*/
     );
   }
 }
 
-export default Radium(App);
+export default App;
+//export default Radium(App);
